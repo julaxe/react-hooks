@@ -8,7 +8,8 @@ function Greeting({initialName = ''}) {
   const [name, setName] = React.useState(
     () => window.localStorage.getItem('name') || initialName
     )
-
+  // we declare an array as a second argument so we tell to useEffect when to update, in this case
+  // we are telling useEffect that only updates when the variable 'name' is changed.
   React.useEffect(() => {
     window.localStorage.setItem('name', name)
   }, [name])
